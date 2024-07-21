@@ -3,9 +3,11 @@ package com.group.libraryapp.repository.user;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository //스프링 빈으로 등록. 바로 jdbc 이용가능
 public class UserRepository {
     private final JdbcTemplate jdbcTemplate;
 
