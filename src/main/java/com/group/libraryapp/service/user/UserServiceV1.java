@@ -3,8 +3,7 @@ package com.group.libraryapp.service.user;
 import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
-import com.group.libraryapp.repository.user.UserRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.group.libraryapp.repository.user.UserJdbcRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,11 +11,11 @@ import java.util.List;
 //컨트롤러가 객체를 직접 변환하지는 않음. 따라서 @RequestBody가 붙지 않음
 
 @Service
-public class UserService {
+public class UserServiceV1 {
 
-    private final UserRepository userRepository;
+    private final UserJdbcRepository userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserServiceV1(UserJdbcRepository userRepository){
         this.userRepository = userRepository;
     }
     public void saveUser(UserCreateRequest request){
