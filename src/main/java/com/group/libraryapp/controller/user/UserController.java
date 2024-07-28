@@ -5,6 +5,7 @@ import com.group.libraryapp.dto.user.request.UserUpdateRequest;
 import com.group.libraryapp.dto.user.response.UserResponse;
 
 import com.group.libraryapp.service.user.UserServiceV1;
+import com.group.libraryapp.service.user.UserServiceV2;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,11 +13,11 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final UserServiceV1 userService;
+    private final UserServiceV2 userService;
     //private final JdbcTemplate jdbcTemplate; //db에 접근 . 이제 가져올필요 없음
 
     //생성자를 만듦. jdbc 템플릿을 생성자에 직접 넣어주지 않아도 스프링이 알아서 넣어줌
-    public UserController(UserServiceV1 userService) {
+    public UserController(UserServiceV2 userService) {
         //this.jdbcTemplate = jdbcTemplate;
         this.userService = userService; //자기가 필요한 userService가 스프링 빈이라 바로 가져오기 가능
     }
