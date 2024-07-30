@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +24,7 @@ public class UserServiceV2 {
     public void saveUser(UserCreateRequest request){
         User u = userRepository.save(new User(request.getName(), request.getAge()));
         //u.getId();
-        throw new IllegalArgumentException();
+        //throw new IllegalArgumentException();
     }
     @Transactional(readOnly = true)
     public List<UserResponse> getUsers(){
@@ -43,10 +44,8 @@ public class UserServiceV2 {
     @Transactional
     public void deleteUser(String name){
         //Select * FROM user WHERE name = ?
-        User user = userRepository.findByName(name);
-        if(user == null){
-            throw new IllegalArgumentException();
-        }
+        User user = userRepository.findByName(name)
+                .orElseThrow(IllegalArgumentException::new);
 
         userRepository.delete(user);
     }
