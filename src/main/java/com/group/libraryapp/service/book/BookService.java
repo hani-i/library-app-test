@@ -20,7 +20,7 @@ public class BookService {
 
     private final UserRepository userRepository;
 
-    //스프링 빈으로 설정하면 생성자가 생성될 때 알아서 찾아주고, 발동?
+    //스프링 빈으로 설정하면 생성자가 생성될 때 알아서 찾아줌
     public BookService(BookRepository bookRepository,
                        UserLoanHistoryRepository userLoanHistoryRepository,
                        UserRepository userRepository){
